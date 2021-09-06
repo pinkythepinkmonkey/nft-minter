@@ -1,2 +1,3 @@
 # nft-minter
-Mint NFT collections on Ethereum Virtual Machine (EVM) blockchains
+
+Mint NFT collections on Ethereum Virtual Machine (EVM) blockchains.
