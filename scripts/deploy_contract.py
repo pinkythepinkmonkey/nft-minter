@@ -2,7 +2,7 @@
 
 import os
 
-from brownie import SandDollarNFT, accounts, network, config
+from brownie import NFT, accounts, network, config
 
 
 def main():
@@ -11,4 +11,4 @@ def main():
 
     publish_source = True if os.getenv("ETHERSCAN_TOKEN") else False
     publish_source = True if os.getenv("POLYGONSCAN_TOKEN") else False
-    SandDollarNFT.deploy({"from": dev}, publish_source=publish_source)
+    NFT.deploy({"from": dev}, publish_source=publish_source)

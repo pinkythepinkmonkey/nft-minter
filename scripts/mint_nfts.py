@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-from brownie import SandDollarNFT, accounts, network, config
+from brownie import NFT, accounts, network, config
 
 
 OPENSEA_FORMAT = "https://testnets.opensea.io/assets/{}/{}"
@@ -10,17 +10,14 @@ def main():
     dev = accounts.add(config["wallets"]["from_key"])
     print(network.show_active())
 
-    for idx in range(4):
-        contract = SandDollarNFT[len(SandDollarNFT) - 1]
+    contract = NFT[len(NFT) - 1]
+    transaction = contract.mintBatch(4, {"from": dev})
+    transaction.wait(1)
 
-        transaction = contract.mint({"from": dev})
-        transaction.wait(1)
-
-        print(
-            "View NFT on OpenSea: {}".format(
-                OPENSEA_FORMAT.format(
-                    contract.address, contract.totalSupply()-1)
-            )
+    print(
+        "View NFT on OpenSea, e.g.: {}".format(
+            OPENSEA_FORMAT.format(contract.address, 0)
         )
+    )
 
-    print('Please wait 20 minutes and hit the "refresh metadata" button.')
+    print('You may need to hit the "refresh metadata" button in OpenSea.')

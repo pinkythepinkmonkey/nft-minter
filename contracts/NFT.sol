@@ -12,13 +12,19 @@ contract SandDollarNFT is ERC721, Ownable {
 
     Counters.Counter private _tokenIdCounter;
 
-    constructor() public ERC721("SDPOLY10", "SDP10") {
+    constructor() public ERC721("SDPOLYX", "SDPOLYX") {
         _setBaseURI("ipfs://QmVvUotFSTypmoEvGN7duQepwy49Cg56674rTFWVzQg1dM/");
     }
 
-    function mint() public onlyOwner {
+    function mint() private onlyOwner {
         _safeMint(msg.sender, _tokenIdCounter.current());
         _tokenIdCounter.increment();
+    }
+
+    function mintBatch(uint256 numTokens) public onlyOwner {
+        for (uint256 i = 0; i < numTokens; i++) {
+            mint();
+        }
     }
 
     function isApprovedForAll(address _owner, address _operator)
