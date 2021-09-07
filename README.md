@@ -2,6 +2,12 @@
 
 Mint NFT collections on Ethereum Virtual Machine (EVM) blockchains such as Ethereum, Polygon, or Binance Smart Chain.
 
+# Related resource
+
+The code here is an extension of the `simple` contract in PatrickAlphaC [nft-mix](https://github.com/PatrickAlphaC/nft-mix) tutorial. Give this a read for more information and especially if you are interested in developing a contract which can generate random NFTs.
+
+I have also found the [OpenZeppelin Contracts Wizard](https://wizard.openzeppelin.com/) to be very useful. This wizard assumes you are using OpenZeppelin >= 4.x contracts while the contract here is based on OpenZepplin 3.x due to compatibility issues with Brownie. Nonetheless, it is generally a useful place to start when looking to add new features to an NFT contract.
+
 ## Prerequisites
 
 The following are required:
